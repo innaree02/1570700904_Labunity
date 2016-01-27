@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public float tilt;
 	public Boundary boundary;
+	public GameObject shot;
+	public GameObject shotSpawn; 
+	public float fireRate;
 	
+	private float nextFire; 
 	void FixedUpdate()
 	{
 		float moveHorizontal = Input.GetAxis ("Horizontal");
@@ -36,6 +40,13 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetButton("Fire1") && Time.time > nextFire) 
+		{
+			shot = Instantiate(shot) as GameObject;
+			nextFire = Time.time + fireRate;
+			//GameObject clone = 
+			shot.transform.position = shotSpawn.transform.position;
+			
+		}
 	}
 }
