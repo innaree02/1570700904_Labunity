@@ -35,17 +35,18 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetButton("Fire1") && Time.time > nextFire) 
 		{
-			shot = Instantiate(shot) as GameObject;
+
 			nextFire = Time.time + fireRate;
-			//GameObject clone = 
-			shot.transform.position = shotSpawn.transform.position;
+			Instantiate(shot, shotSpawn.transform.position,shotSpawn.transform.rotation);
+			//shot.transform.position = shotSpawn.transform.position;
+
 			
 		}
 	}
