@@ -2,6 +2,9 @@
 using System.Collections;
 
 public class DestoryByContact : MonoBehaviour {
+	public GameObject explosion;
+	public GameObject playerExplosion;
+
 
 	// Use this for initialization
 	void Start () {
@@ -12,14 +15,20 @@ public class DestoryByContact : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnTriggerEnter (Collider other)
+	void OnTriggerEnter(Collider other) 
 	{
-		if (other.gameObject.tag == "Boundary")
+		if (other.tag == "Boundary")
 		{
 			return;
 		}
-		else
-			Destroy(other.gameObject);
-		Destroy(gameObject);﻿
+		Instantiate(explosion, transform.position, transform.rotation);
+		if (other.tag == "Player")
+		{
+			Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+
+		}
+		Destroy(other.gameObject);
+		Destroy(gameObject);
 	}
 }
+	
