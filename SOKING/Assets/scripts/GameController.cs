@@ -42,8 +42,8 @@ public class GameController : MonoBehaviour {
 
 		for (int i=0; i< hazardCount; i++) {
 		
-		Vector3 spawnPosition = new Vector3 (UnityEngine.Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-		Quaternion spawnRotation = Quaternion.identity;
+		Vector3 spawnPosition = new Vector3 ((transform.position(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z));
+				Quaternion spawnRotation = 0f;
 		Instantiate (hazard, spawnPosition, spawnRotation);
 		yield return new WaitForSeconds (spawnWait);
 		}
